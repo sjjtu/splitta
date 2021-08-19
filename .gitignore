@@ -1,0 +1,7 @@
+test.*
+
+Pipfile
+
+Pipfile.*
+
+*.egg-info
