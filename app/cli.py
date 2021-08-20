@@ -21,7 +21,7 @@ def add(filename, name, amount, currency='eur', description=''):
 
 @cli.command()
 @click.argument('filename')
-def print_split(filename):
+def overview(filename):
 	print_split(filename)
 
 @cli.command()
