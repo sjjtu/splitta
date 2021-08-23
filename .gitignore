@@ -5,3 +5,5 @@ Pipfile
 Pipfile.*
 
 *.egg-info
+
+.vs*
