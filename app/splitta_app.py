@@ -51,7 +51,7 @@ def compute_balance(file, target_currency='eur'):
 		print('please create a file first')
 	
 
-def split(filename, target_currency='eur'):
+def split(filename, target_currency='eur', tol=0.01):
 	balances, total = compute_balance(filename, target_currency)
 	target = total/(len(balances))
 	mutable_balances = balances.copy()
@@ -61,9 +61,9 @@ def split(filename, target_currency='eur'):
 		if diff <= 0:
 			break
 		for receiver, bonus in reversed(mutable_balances.items()):
-			if bonus - target == 0:
+			if abs(bonus - target) <= tol:
 				continue
-			if diff <= bonus - target:
+			if abs(diff - (bonus - target)) <= tol:
 				instructions.append(f'{person} should give {receiver} {diff}')
 				mutable_balances[receiver] -= diff
 				break
