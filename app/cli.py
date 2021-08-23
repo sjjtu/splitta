@@ -28,6 +28,12 @@ def overview(filename):
 @click.argument('filename')
 def compute(filename):
 	click.echo(compute_balance(filename))
+	
+
+@cli.command()
+@click.argument('filename')
+def split(filename):
+	click.echo(split_balance(filename))
 
 
 if __name__=="__main__":
